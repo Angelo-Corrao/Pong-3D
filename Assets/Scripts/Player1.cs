@@ -13,6 +13,11 @@ public class Player1 : Paddle {
 
 	// Update is called once per frame
 	void Update() {
+		direction = new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
+		Vector3 newpos = transform.position + direction * speed * Time.deltaTime;
+		newpos.y = Mathf.Clamp(newpos.y, -4.2f, 4.2f);
+		transform.position = newpos;
+
 		/*if (Input.GetKey(KeyCode.W)) {
 			if (transform.position.y < 4.2)
 				transform.position += Vector3.up * speed * Time.deltaTime;
@@ -22,14 +27,10 @@ public class Player1 : Paddle {
 			if (transform.position.y > -4.2)
 				transform.position += Vector3.down * speed * Time.deltaTime;
 		}*/
-		direction = new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
-		Vector3 newpos = transform.position + direction * speed * Time.deltaTime;
-		newpos.y = Mathf.Clamp(newpos.y, -4.2f, 4.2f);
-		transform.position = newpos;
 	}
 
 	private void FixedUpdate() {
-		//rb.MovePosition(direction);
+		//rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
 		//rb.velocity = direction * speed;
 		/*if (direction.sqrMagnitude != 0)
 			rb.AddForce(direction * speed);*/

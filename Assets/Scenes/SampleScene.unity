@@ -383,13 +383,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958698242}
   serializedVersion: 2
-  m_Mass: 0.2
-  m_Drag: 0
+  m_Mass: 1000
+  m_Drag: 10
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &958698245
 BoxCollider:

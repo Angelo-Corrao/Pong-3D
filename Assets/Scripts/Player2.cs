@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player2 : Paddle {
 
+	private Vector3 direction;
+
 	// Start is called before the first frame update
 	void Start() {
 
@@ -11,14 +13,9 @@ public class Player2 : Paddle {
 
 	// Update is called once per frame
 	void Update() {
-		if (Input.GetKey(KeyCode.UpArrow)) {
-			if (transform.position.y < 4.2)
-				transform.position += Vector3.up * speed * Time.deltaTime;
-		}
-
-		if (Input.GetKey(KeyCode.DownArrow)) {
-			if (transform.position.y > -4.2)
-				transform.position += Vector3.down * speed * Time.deltaTime;
-		}
+		direction = new Vector3(0, Input.GetAxisRaw("Vertical2"), 0);
+		Vector3 newpos = transform.position + direction * speed * Time.deltaTime;
+		newpos.y = Mathf.Clamp(newpos.y, -4.2f, 4.2f);
+		transform.position = newpos;
 	}
 }

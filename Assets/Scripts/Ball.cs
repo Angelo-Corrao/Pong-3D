@@ -22,6 +22,15 @@ public class Ball : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		
+	}
 
+	private void OnCollisionEnter(Collision collision) {
+		if(collision.gameObject.CompareTag("LeftGoal"))
+			Debug.Log("P1");
+		if (collision.gameObject.CompareTag("RightGoal"))
+			Debug.Log("P2");
+		if (collision.gameObject.CompareTag("Armour"))
+			collision.gameObject.SetActive(false);
 	}
 }

@@ -23,9 +23,9 @@ public class Ball : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.CompareTag("Armor")) {
+		/*if (collision.gameObject.CompareTag("Armor")) {
 			collision.gameObject.SetActive(false);
-		}
+		}*/
 
 		if (collision.gameObject.CompareTag("Paddle1")) {
 			if(rb.velocity.y < 0)

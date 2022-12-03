@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - LeftGoal
-  - RightGoal
+  - Ball
   - Armour
+  - Paddle2
+  - Paddle1
   layers:
   - Default
   - TransparentFX

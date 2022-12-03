@@ -18,4 +18,15 @@ public class Player2 : Paddle {
 		newpos.y = Mathf.Clamp(newpos.y, -4.2f, 4.2f);
 		transform.position = newpos;
 	}
+
+	private void OnCollisionEnter(Collision collision) {
+		float bounceStrength = 10f;
+
+		Ball ball = collision.gameObject.GetComponent<Ball>();
+
+		if (ball != null) {
+			Vector3 normal = collision.GetContact(0).normal;
+			ball.AddForce(normal * bounceStrength);
+		}
+	}
 }
